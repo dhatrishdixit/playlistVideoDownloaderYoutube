@@ -1,4 +1,11 @@
 const ytdl = require('ytdl-core');
+const { google } = require('googleapis');
+const youtube = google.youtube({
+    version: 'v3',
+    auth: 'AIzaSyAtOGR47IWCMgPwfytblIHgMG4zL9J2wgQ',
+  });
+
+  
 /**
  * Reencode audio & video without creating files first
  *
@@ -8,13 +15,10 @@ const ytdl = require('ytdl-core');
  * https://github.com/fent/node-ytdl-core/blob/cc6720f9387088d6253acc71c8a49000544d4d2a/example/ffmpeg.js
  */
 
-// Buildin with nodejs
 const cp = require('child_process');
 const readline = require('readline');
-// External modules
-
 const ffmpeg = require('ffmpeg-static');
-// Global constants
+
 const ref = 'https://www.youtube.com/watch?v=aqz-KE-bpKQ';
 const tracker = {
   start: Date.now(),
